@@ -14,9 +14,11 @@ This script interleaves the pages of two PDFs, which is very useful when scannin
 
 ### Web Application (Browser-only)
 
+⚡ **Try it live:** [https://zn4ke.github.io/pdf-zip-merger/web/](https://zn4ke.github.io/pdf-zip-merger/web/)
+
 You can run this entirely in your browser without installing anything or using the command line. Since it uses `pdf-lib`, all processing happens locally on your machine, ensuring complete privacy.
 
-1. Open the `web/index.html` file in your preferred web browser.
+1. Open the [live demo](https://zn4ke.github.io/pdf-zip-merger/web/) or the local `web/index.html` file in your preferred web browser.
 2. Drag and drop your front pages PDF and back pages PDF into the respective areas.
 3. Toggle the "Reverse Back Pages" switch if necessary.
 4. Click **Zipp it!** and download the merged result.
