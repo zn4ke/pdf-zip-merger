@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Interleaver - Combine Scanned Pages</title>
+    <meta name="description"
+        content="Merge front and back pages of scanned PDF documents directly in your browser. No data uploaded.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>PDF Zipper</h1>
+            <p>Interleave double-sided scans instantly. <br />All processing happens locally in your browser –
+                absolutely no data is uploaded.</p>
+        </header>
+
+        <section class="dropzones-container">
+            <div class="dropzone" id="fronts-dropzone">
+                <input type="file" id="fronts-file" accept="application/pdf" class="file-input">
+                <div class="dropzone-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4v12m0-12l4 4m-4-4L8 8" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3 id="fronts-label">Front Pages</h3>
+                    <p class="file-name" id="fronts-name">Drag & drop PDF here<br>or click to browse</p>
+                </div>
+            </div>
+
+            <div class="dropzone" id="backs-dropzone">
+                <input type="file" id="backs-file" accept="application/pdf" class="file-input">
+                <div class="dropzone-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4v12m0-12l4 4m-4-4L8 8" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3 id="backs-label">Back Pages</h3>
+                    <p class="file-name" id="backs-name">Drag & drop PDF here<br>or click to browse</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="controls">
+            <label class="toggle-container">
+                <div class="toggle-text">
+                    <span class="toggle-title">Reverse Back Pages</span>
+                    <span class="toggle-desc">Enable if the scanner spit out the back pages in reverse order.</span>
+                </div>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="reverse-backs">
+                    <span class="slider"></span>
+                </div>
+            </label>
+        </section>
+
+        <div id="loading" class="hidden loading-container">
+            <div class="spinner"></div>
+            <span>Processing...</span>
+        </div>
+
+        <section id="result-container" class="result-container hidden">
+            <div class="success-card glass-panel">
+                <div class="preview-wrapper">
+                    <h3>Document Preview</h3>
+                    <div id="pdf-preview-container" class="pdf-preview-container"></div>
+                </div>
+
+                <div class="action-buttons">
+                    <a id="download-link" href="#" class="secondary-btn" download="merged_scans.pdf">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M7 11l5 5 5-5M12 4v12" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
