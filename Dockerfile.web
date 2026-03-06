@@ -1,7 +1,9 @@
 FROM nginx:alpine
 
 # Copy the static website files to the nginx html directory
-COPY web /usr/share/nginx/html
+COPY ./index.html /usr/share/nginx/html
+COPY zip-merger /usr/share/nginx/html/zip-merger
+COPY pdf-composer /usr/share/nginx/html/pdf-composer
 
 # Expose port 80
 EXPOSE 80

@@ -12,18 +12,28 @@ This script interleaves the pages of two PDFs, which is very useful when scannin
 
 ## Usage
 
-### Web Application (Browser-only)
+### 1. Web App - PDF Zip Interleaver (Browser-only)
 
-⚡ **Try it live:** [https://zn4ke.github.io/pdf-zip-merger/web/](https://zn4ke.github.io/pdf-zip-merger/web/)
+⚡ **Try it live:** [https://zn4ke.github.io/pdf-zip-merger/zip-merger/](https://zn4ke.github.io/pdf-zip-merger/zip-merger/)
 
 You can run this entirely in your browser without installing anything or using the command line. Since it uses `pdf-lib`, all processing happens locally on your machine, ensuring complete privacy.
 
-1. Open the [live demo](https://zn4ke.github.io/pdf-zip-merger/web/) or the local `web/index.html` file in your preferred web browser.
+1. Open the [live demo](https://zn4ke.github.io/pdf-zip-merger/zip-merger/) or the local `zip-merger/index.html` file in your preferred web browser.
 2. Drag and drop your front pages PDF and back pages PDF into the respective areas.
 3. Toggle the "Reverse Back Pages" switch if necessary.
 4. Click **Zipp it!** and download the merged result.
 
-No local server is required.
+### 2. Web App - PDF Composer Page Merger (Browser-only)
+
+⚡ **Try it live:** [https://zn4ke.github.io/pdf-zip-merger/pdf-composer/](https://zn4ke.github.io/pdf-zip-merger/pdf-composer/)
+
+Combine multiple PDFs, reorganize page order perfectly via drag-and-drop, and instantly rotate any mistakenly oriented pages.
+
+1. Open the [live demo](https://zn4ke.github.io/pdf-zip-merger/pdf-composer/) or the local `pdf-composer/index.html` file in your preferred web browser.
+2. Drag and drop multiple PDF files into the designated area.
+3. Drag pages around to reorder them exactly as you wish. 
+4. Rotate any pages that imported in the wrong direction.
+5. Click **Export Document** to save the configured PDF.
 
 #### Running the Web App in Docker (Nginx)
 
