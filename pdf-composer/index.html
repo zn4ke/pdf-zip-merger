@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Composer - Merge & Organize Pages</title>
+    <meta name="description"
+        content="Merge multiple PDFs, reorder and rotate pages directly in your browser. No data uploaded.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- pdf-lib for PDF manipulation -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+    <!-- PDF.js for rendering thumbnails -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+        <div class="blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>PDF Composer</h1>
+            <p>Combine, reorder, and rotate PDF pages instantly.<br />All processing happens locally in your browser –
+                absolutely no data is uploaded.</p>
+        </header>
+
+        <section class="dropzones-container">
+            <div class="dropzone" id="main-dropzone">
+                <input type="file" id="pdf-file-input" accept="application/pdf" class="file-input" multiple>
+                <div class="dropzone-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4v12m0-12l4 4m-4-4L8 8" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3>Add PDFs</h3>
+                    <p class="file-name">Drag & drop PDFs here<br>or click to browse. You can add multiple files.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="loading" class="hidden loading-container">
+            <div class="spinner"></div>
+            <span>Processing PDF...</span>
+        </div>
+
+        <section class="composer-area glass-panel hidden" id="composer-area">
+            <div class="composer-header">
+                <h2>Pages (<span id="page-count">0</span>)</h2>
+                <div class="header-actions">
+                    <button id="clear-all-btn" class="danger-btn">Clear All</button>
+                    <button id="export-btn" class="primary-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M7 11l5 5 5-5M12 4v12" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Export Document
+                    </button>
+                </div>
+            </div>
+
+            <p class="instruction-text">Drag to reorder. Click the rotate icon to rotate a page.</p>
+
+            <div class="pages-grid" id="pages-grid">
+                <!-- Pages will be generated here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
